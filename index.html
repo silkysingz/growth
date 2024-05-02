@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Population Growth Bar Chart</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Year');
+    data.addColumn('number', 'Population');
+
+    data.addRows([
+      ['2014', 1897597],
+      ['2015', 1958560],
+      ['2016', 2020414],
+      ['2017', 2083429],
+      ['2018', 2147677],
+      ['2019', 2213134],
+      ['2020', 2279884],
+      ['2021', 2348036],
+      ['2022', 2417471],
+      ['2023', 2488245],
+      ['2024', 2560305],
+      ['2025', 2633618],
+      ['2026', 2708174],
+      ['2027', 2783976],
+      ['2028', 2860991],
+      ['2029', 2939164],
+      ['2030', 3018452],
+      ['2031', 3098811],
+      ['2032', 3180333],
+      ['2033', 3262831],
+      ['2034', 3346220],
+      ['2035', 3430575],
+      ['2036', 3515691]
+    ]);
+
+    var options = {
+      title: 'Population Growth Over Years',
+      legend: { position: 'none' },
+      animation: {
+        startup: true,
+        duration: 1000,
+        easing: 'out'
+      }
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('column_chart'));
+
+    chart.draw(data, options);
+  }
+</script>
+</head>
+<body>
+<div id="column_chart" style="width: 100%; height: 500px;"></div>
+</body>
+</html>
+
